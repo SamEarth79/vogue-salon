@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/vogue-salon/static/css/main.ec48003b.css",
+    "main.js": "/vogue-salon/static/js/main.667ae0e4.js",
+    "static/media/undraw_barber_-3-uel.svg": "/vogue-salon/static/media/undraw_barber_-3-uel.829588055b05258278faf60a49cd4147.svg",
+    "static/media/logo.png": "/vogue-salon/static/media/logo.3216db457e6d351341d0.png",
+    "index.html": "/vogue-salon/index.html",
+    "main.ec48003b.css.map": "/vogue-salon/static/css/main.ec48003b.css.map",
+    "main.667ae0e4.js.map": "/vogue-salon/static/js/main.667ae0e4.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.ec48003b.css",
+    "static/js/main.667ae0e4.js"
+  ]
+}
