@@ -28,23 +28,26 @@ function SignUp() {
 	};
 
 	return (
-		<div className="font-Montserrat font-medium flex h-screen">
+		<div className="font-Montserrat font-medium h-screen flex max-sm:flex-col lg:overflow-hidden">
 			{/* Left */}
-			<div className="flex flex-col justify-center w-1/2 pl-8">
-				<h1 className="font-light text-xl absolute top-10">
+			<div className="flex flex-col justify-around h-full lg:w-1/2 max-sm:w-full lg:pl-8">
+				<h1 className="font-light text-xl lg:absolute top-10 px-8">
 					<Link to="/">Vogue Salon</Link>
 				</h1>
-				<div className="flex flex-col justify-around w-8/12 mx-auto h-1/2">
+				<div className="flex flex-col justify-around w-8/12 mx-auto h-1/2 max-sm:w-11/12">
 					<div className="">
 						<h1 className="text-3xl font-semibold">
-							Welcome to the salon
+							Welcome to the salon!
 						</h1>
 						<p className="text-slate-400 mt-2">
 							Let's create an account for you
 						</p>
 					</div>
-					<div className="w-full">
-						<form className="flex flex-col" onSubmit={signUp}>
+					<div className="w-full mt-10">
+						<form
+							className="flex flex-col max-sm:items-center"
+							onSubmit={signUp}
+						>
 							<input
 								value={email}
 								onChange={(e) => setEmail(e.target.value)}
@@ -76,9 +79,9 @@ function SignUp() {
 				</div>
 			</div>
 			{/* Right */}
-			<div className="w-1/2">
+			<div className="lg:w-1/2 max-sm:p-2 max-sm:mx-auto">
 				<img
-					className="object-cover"
+					className="object-cover h-full  max-sm:w-52 max-sm:h-52 max-sm:rounded-full"
 					src="https://images.unsplash.com/photo-1580087433295-ab2600c1030e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80"
 					alt="cover"
 				/>

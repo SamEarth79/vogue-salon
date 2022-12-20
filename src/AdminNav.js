@@ -21,7 +21,7 @@ function Admin_Nav() {
 	};
 
 	return (
-		<div className="bg-white flex justify-between px-16 py-8 fixed w-screen">
+		<div className="bg-white flex font-Montserrat justify-between px-16 py-8 w-screen">
 			<div className="logo">
 				<Link to="/">
 					<h1 className="font-light tracking-wider text-xl">

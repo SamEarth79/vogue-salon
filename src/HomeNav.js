@@ -15,7 +15,7 @@ function HomeNav() {
 	};
 
 	return (
-		<div className="bg-white flex justify-between px-16 py-8 fixed w-screen">
+		<div className="bg-white flex font-Montserrat justify-between px-16 py-8 fixed w-screen">
 			<div className="logo">
 				<h1 className="font-light text-xl">Vogue Salon</h1>
 			</div>

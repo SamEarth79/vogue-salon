@@ -9,18 +9,18 @@ function MyAppointments() {
 	const dispatch = useDispatch();
 
 	const monthArray = [
-		"January",
-		"February",
-		"March",
-		"April",
+		"Jan",
+		"Feb",
+		"Mar",
+		"Apr",
 		"May",
 		"June",
 		"July",
-		"August",
-		"September",
-		"October",
-		"November",
-		"December",
+		"Aug",
+		"Sep",
+		"Oct",
+		"Nov",
+		"Dec",
 	];
 
 	const minusAppointment = (e, index) => {
@@ -28,19 +28,14 @@ function MyAppointments() {
 		dispatch(adminActions.removeAppointment(index));
 	};
 
-	const doneAppointment = (e, index) => {
-		e.preventDefault();
-		dispatch(adminActions.FinishAppointments(index));
-	};
-
 	return (
-		<div className="bg-BG h-screen">
+		<div className="bg-BG h-screen overflow-auto">
 			<Admin_Nav />
-			<div className="flex flex-col h-screen items-center justify-center">
-				<h1 className="text-7xl text-DarkBlue font-semibold">
+			<div className="flex flex-col items-center justify-evenly h-5/6 absolute top-1/2 w-full -translate-y-1/2">
+				<h1 className="lg:text-7xl text-5xl  text-DarkBlue font-semibold">
 					My Appointments
 				</h1>
-				<div className="Appointments w-8/12 bg-white p-10 mt-10 rounded-2xl ">
+				<div className="Appointments lg:w-8/12 bg-white p-10 rounded-2xl overflow-x-auto">
 					<table className="mx-auto">
 						<thead id="thead">
 							<td className="text-xl text-LightBlue font-semibold"></td>
@@ -100,12 +95,14 @@ function MyAppointments() {
 													<span className="text-xs align-super">
 														th
 													</span>{" "}
-													{monthArray[
-														item.dateTime.slice(
-															5,
-															7
-														)
-													].slice(0, 3)}{" "}
+													{
+														monthArray[
+															item.dateTime.slice(
+																5,
+																7
+															) - 1
+														]
+													}{" "}
 													{item.dateTime.slice(11)}{" "}
 												</span>
 											</td>

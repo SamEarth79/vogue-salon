@@ -8,18 +8,18 @@ function AdminBody() {
 	const [number, setNumber] = useState("");
 	const [dateTime, setDateTime] = useState(new Date());
 	const monthArray = [
-		"January",
-		"February",
-		"March",
-		"April",
+		"Jan",
+		"Feb",
+		"Mar",
+		"Apr",
 		"May",
 		"June",
 		"July",
-		"August",
-		"September",
-		"October",
-		"November",
-		"December",
+		"Aug",
+		"Sep",
+		"Oct",
+		"Nov",
+		"Dec",
 	];
 	const dispatch = useDispatch();
 	const appointments = useSelector((state) => state.admin.appointments);
@@ -38,23 +38,15 @@ function AdminBody() {
 		sendData();
 	}, [appointments]);
 
-	const appointments2 = [
-		{
-			name: "Samarth M",
-			number: "9148002295",
-			time: "18:00",
-		},
-		{
-			name: "Shreyas Mummigatti",
-			number: "9148002295",
-			time: "18:30",
-		},
-	];
-
 	const plusAppointment = (e) => {
 		e.preventDefault();
 
 		console.log("User" + { user });
+		console.log(dateTime);
+		if (dateTime === null)
+			alert(
+				"Please click and mention all the fields of date and time(including AM and PM)"
+			);
 
 		dispatch(
 			adminActions.addAppointment({
@@ -99,13 +91,17 @@ function AdminBody() {
 	});
 
 	return (
-		<div className="flex flex-col items-center justify-around px-16 pt-36">
+		<div className="flex flex-col items-center justify-around pt-20 max-sm:pt-8">
 			<div className="heading flex flex-col items-center">
-				<h1 className="text-8xl text-DarkBlue">{currTime}</h1>
-				<p className="pt-4">Have a great day</p>
+				<h1 className="lg:text-8xl text-6xl text-center text-DarkBlue">
+					{currTime}
+				</h1>
+				<p className="lg:pt-4 pt-6 lg:text-xl text-lg italic">
+					Have a great day
+				</p>
 			</div>
 
-			<div className="Appointments w-8/12 bg-white p-10 mt-10 rounded-2xl ">
+			<div className="Appointments lg:w-8/12 w-11/12 bg-white p-10 my-10 rounded-2xl overflow-x-auto">
 				<table className="mx-auto">
 					<thead id="thead">
 						<td className="text-xl text-LightBlue font-semibold"></td>
@@ -154,9 +150,12 @@ function AdminBody() {
 											<span className="text-xs align-super">
 												th
 											</span>{" "}
-											{monthArray[
-												item.dateTime.slice(5, 7)
-											].slice(0, 3)}{" "}
+											{
+												monthArray[
+													item.dateTime.slice(5, 7) -
+														1
+												]
+											}{" "}
 											{item.dateTime.slice(11)}{" "}
 										</span>
 									</td>
@@ -216,8 +215,7 @@ function AdminBody() {
 										type="datetime-local"
 										placeholder="Add datetime local"
 									/>
-									{/* </td>
-							<td> */}
+									{/* {dateTime} */}
 									<span
 										onClick={plusAppointment}
 										className="cursor-pointer material-symbols-outlined"

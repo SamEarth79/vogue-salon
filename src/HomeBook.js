@@ -65,14 +65,16 @@ function HomeBook() {
 	};
 
 	return (
-		<div className="flex flex-col space-y-10">
-			<Admin_Nav />
-			<div className="bg-BG h-screen max-h-screen flex flex-col p-20 items-center justify-evenly">
-				<h1 className="float-left text-DarkBlue text-6xl font-normal">
-					Schedule an Appointment
+		<div className="flex flex-col">
+			<nav className="fixed">
+				<Admin_Nav />
+			</nav>
+			<div className="bg-BG h-full min-h-screen flex flex-col pt-20 max-sm:pt-24 items-center justify-evenly">
+				<h1 className="text-DarkBlue text-6xl max-sm:text-4xl font-normal text-center max-sm:py-8">
+					Schedule an appointment
 				</h1>
-				<div className="bg-white w-10/12 rounded-2xl mx-auto p-8 text-lg flex flex-col space-y-10">
-					<div className="">
+				<div className="bg-white w-8/12 max-sm:w-11/12 rounded-2xl mx-auto p-8 text-lg flex flex-col space-y-10">
+					<div className="leading-10 max-sm:flex max-sm:flex-col">
 						<p className="inline">Hey, my name is </p>
 						<input
 							value={name}
@@ -81,7 +83,9 @@ function HomeBook() {
 							placeholder="Name"
 							className="bg-inherit border-b-2 border-DarkBlue text-center mx-3 focus:outline-none placeholder:text-gray-400 text-LightBlue"
 						/>
-						<p className="inline">and you can contact me at </p>
+						<p className="inline max-sm:mt-4">
+							and you can contact me at{" "}
+						</p>
 						<input
 							value={phone}
 							onChange={(e) => setPhone(e.target.value)}
@@ -101,7 +105,7 @@ function HomeBook() {
 					</div>
 					<div className="">
 						<p>I would like to get</p>
-						<div className="mt-6">
+						<div className="my-2">
 							{services.map((service, index) => (
 								<ServiceCard
 									key={index}
@@ -119,16 +123,19 @@ function HomeBook() {
 							))}
 						</div>
 					</div>
-					<div
-						onClick={clearServices}
-						className="inline cursor-pointer"
-					>
-						Clear
+
+					<div className="flex justify-between">
+						<p>Your bill is {cartBill}</p>
+						<div
+							onClick={clearServices}
+							className="inline cursor-pointer bg-LightBlue w-fit px-3 py-2 rounded-full text-white"
+						>
+							Clear
+						</div>
 					</div>
-					<div className="">Your bill is {cartBill}</div>
 				</div>
 				<div
-					className="bg-DarkBlue px-4 py-3 text-xl rounded-lg text-white cursor-pointer"
+					className="bg-DarkBlue my-4 px-4 py-3 text-xl rounded-lg text-white cursor-pointer"
 					onClick={addAppointment}
 				>
 					Book Appointment
