@@ -43,24 +43,27 @@ function AdminBody() {
 
 		console.log("User" + { user });
 		console.log(dateTime);
-		if (dateTime === null)
+		if (name === "" || number === "")
+			alert("Name or phone number cannot be empty");
+		else if (dateTime === null)
 			alert(
 				"Please click and mention all the fields of date and time(including AM and PM)"
 			);
+		else {
+			dispatch(
+				adminActions.addAppointment({
+					name: name,
+					number: number,
+					dateTime: dateTime,
+					isDone: false,
+					user: user,
+				})
+			);
 
-		dispatch(
-			adminActions.addAppointment({
-				name: name,
-				number: number,
-				dateTime: dateTime,
-				isDone: false,
-				user: user,
-			})
-		);
-
-		setName("");
-		setNumber("");
-		setDateTime(null);
+			setName("");
+			setNumber("");
+			setDateTime(null);
+		}
 	};
 
 	const minusAppointment = (e, index) => {

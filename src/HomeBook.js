@@ -51,21 +51,27 @@ function HomeBook() {
 	console.log(user.uid);
 	const addAppointment = async (e) => {
 		e.preventDefault();
-		if (dateTime === null)
+		console.log(dateTime);
+		console.log(name);
+		console.log(phone);
+		if (name === "" || phone === "")
+			alert("Name or phone number cannot be empty");
+		else if (dateTime === null)
 			alert(
 				"Please click and mention all the fields of date and time(including AM and PM)"
 			);
-		await dispatch(
-			adminActions.addAppointment({
-				name: name,
-				number: phone,
-				dateTime: dateTime,
-				isDone: false,
-				user: user,
-			})
-		);
-
-		navigate("/thankyou");
+		else {
+			await dispatch(
+				adminActions.addAppointment({
+					name: name,
+					number: phone,
+					dateTime: dateTime,
+					isDone: false,
+					user: user,
+				})
+			);
+			navigate("/thankyou");
+		}
 	};
 
 	return (
