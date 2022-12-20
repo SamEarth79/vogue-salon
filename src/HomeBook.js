@@ -51,6 +51,10 @@ function HomeBook() {
 	console.log(user.uid);
 	const addAppointment = async (e) => {
 		e.preventDefault();
+		if (dateTime === null)
+			alert(
+				"Please click and mention all the fields of date and time(including AM and PM)"
+			);
 		await dispatch(
 			adminActions.addAppointment({
 				name: name,

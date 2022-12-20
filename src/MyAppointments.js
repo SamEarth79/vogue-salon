@@ -35,7 +35,7 @@ function MyAppointments() {
 				<h1 className="lg:text-7xl text-5xl  text-DarkBlue font-semibold">
 					My Appointments
 				</h1>
-				<div className="Appointments lg:w-8/12 bg-white p-10 rounded-2xl overflow-x-auto">
+				<div className="Appointments lg:w-8/12 w-11/12 bg-white p-10 rounded-2xl overflow-x-auto">
 					<table className="mx-auto">
 						<thead id="thead">
 							<td className="text-xl text-LightBlue font-semibold"></td>
