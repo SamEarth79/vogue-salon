@@ -9,6 +9,7 @@
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^14.4.3",
     "firebase": "^9.12.1",
+    "gsap": "^3.11.4",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-icons": "^4.6.0",
@@ -47,5 +48,8 @@
     "gh-pages": "^4.0.0",
     "postcss": "^8.4.18",
     "tailwindcss": "^3.2.1"
+  },
+  "prettier": {
+    "tabWidth": 4
   }
 }

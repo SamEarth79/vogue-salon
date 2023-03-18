@@ -20,9 +20,40 @@ const servicesList = [
 	{
 		id: 4,
 		service: "Nails",
-		price: 50,
+		price: 250,
 		isPressed: false,
 	},
+	{
+		id: 5,
+		service: "Spa",
+		price: 1200,
+		isPressed: false,
+	},
+	{
+		id: 6,
+		service: "Manicure",
+		price: 800,
+		isPressed: false,
+	},
+	{
+		id: 7,
+		service: "Waxing",
+		price: 500,
+		isPressed: false,
+	},
+	{
+		id: 8,
+		service: "Threading",
+		price: 350,
+		isPressed: false,
+	},
+	{
+		id: 9,
+		service: "Facial",
+		price: 250,
+		isPressed: false,
+	},
+
 ];
 
 export const services = servicesList;

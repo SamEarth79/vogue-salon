@@ -1,17 +1,15 @@
 import React from "react";
 import HomeHero from "./HomeHero";
-import HomeBook from "./HomeBook";
-import Admin_Nav from "./AdminNav";
-import HomeNav from "./HomeNav";
+import AdminNav from "./AdminNav";
 
 function Home() {
-	return (
-		<div>
-			{/* <HomeNav /> */}
-			<Admin_Nav />
-			<HomeHero />
-		</div>
-	);
+    return (
+        <div>
+            {/* <HomeNav /> */}
+            <AdminNav />
+            <HomeHero />
+        </div>
+    );
 }
 
 export default Home;
