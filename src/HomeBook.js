@@ -12,13 +12,28 @@ import { services } from "./ServicesList";
 function HomeBook() {
     const [name, setName] = useState("");
     const [phone, setPhone] = useState("");
-    const [dateTime, setDateTime] = useState(new Date());
+    const [dateTime, setDateTime] = useState("");
 
     const servicesCart = useSelector((state) => state.service.cart);
     const cartBill = useSelector((state) => state.service.bill);
     const user = useSelector((state) => state.user.user);
 
     const navigate = useNavigate();
+
+    const monthArray = [
+        "Jan",
+        "Feb",
+        "Mar",
+        "Apr",
+        "May",
+        "June",
+        "July",
+        "Aug",
+        "Sep",
+        "Oct",
+        "Nov",
+        "Dec",
+    ];
 
     useEffect(() => {
         console.log(servicesCart);
@@ -54,6 +69,8 @@ function HomeBook() {
 
     console.log("User");
     console.log(user.uid);
+    console.log("Datetime");
+    console.log(dateTime);
     const addAppointment = async (e) => {
         e.preventDefault();
         console.log(dateTime);
@@ -75,6 +92,7 @@ function HomeBook() {
                     user: user,
                 })
             );
+            clearServices();
             navigate("/thankyou");
         }
     };
@@ -117,7 +135,14 @@ function HomeBook() {
                             type="datetime-local"
                             placeholder="Add datetime local"
                         />
-                        <p></p>
+                        <p>
+                            {dateTime.slice(8, 10)}
+                            <span className="text-xs align-super">
+                                {dateTime.length ? "th" : ""}
+                            </span>{" "}
+                            {monthArray[dateTime.slice(5, 7) - 1]}{" "}
+                            {dateTime.slice(11)}{" "}
+                        </p>
                     </div>
                     <div className="">
                         <p>I would like to get</p>
@@ -141,7 +166,10 @@ function HomeBook() {
                     </div>
 
                     <div className="flex justify-between">
-                        <p>Your bill is {cartBill}</p>
+                        <p>
+                            Your bill is{" "}
+                            <span className="font-bold">{cartBill}</span>
+                        </p>
                         <div
                             onClick={clearServices}
                             className="inline cursor-pointer bg-LightBlue w-fit px-3 py-2 rounded-full text-white"
@@ -150,17 +178,19 @@ function HomeBook() {
                         </div>
                     </div>
                 </div>
-                <button
-                    onClick={goBack}
-                    className="bg-LightBlue text-white px-2 py-1 rounded-lg active:bg-blue-800"
-                >
-                    My Appointments
-                </button>
-                <div
-                    className="bg-DarkBlue my-4 px-4 py-3 text-xl rounded-lg text-white cursor-pointer"
-                    onClick={addAppointment}
-                >
-                    Book Appointment
+                <div className="flex gap-4">
+                    <button
+                        onClick={goBack}
+                        className="bg-DarkBlue my-4 px-4 py-3 text-xl rounded-lg text-white cursor-pointer"
+                    >
+                        My Appointments
+                    </button>
+                    <div
+                        className="bg-DarkBlue my-4 px-4 py-3 text-xl rounded-lg text-white cursor-pointer"
+                        onClick={addAppointment}
+                    >
+                        Book Appointment
+                    </div>
                 </div>
             </div>
         </div>

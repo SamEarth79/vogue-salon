@@ -2,11 +2,13 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import AdminNav from "./AdminNav";
 import { adminActions } from "./features/counter/adminSlice";
+import { useNavigate } from "react-router-dom";
 
 function MyAppointments() {
     const user = useSelector((state) => state.user.user);
     const appointments = useSelector((state) => state.admin.appointments);
     const dispatch = useDispatch();
+    const navigate = useNavigate();
 
     const monthArray = [
         "Jan",
@@ -28,13 +30,21 @@ function MyAppointments() {
         dispatch(adminActions.removeAppointment(index));
     };
 
+    const goBack = async (e) => {
+        e.preventDefault();
+        navigate("/book");
+    };
+
     if (appointments.length === 0) {
         return (
             <div className="bg-BG h-screen overflow-auto flex flex-col justify-center items-center">
                 <h1 className="text-3xl">
                     Looks like you dont have any appointments at the moment.
                 </h1>
-                <button className="bg-DarkBlue text-white px-4 py-2 rounded-lg absolute bottom-28">
+                <button
+                    className="bg-DarkBlue text-white px-4 py-2 rounded-lg absolute bottom-28"
+                    onClick={goBack}
+                >
                     Go Back
                 </button>
             </div>
