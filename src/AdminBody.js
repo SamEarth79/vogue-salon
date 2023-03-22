@@ -51,8 +51,8 @@ function AdminBody() {
 
         console.log("User" + { user });
         console.log(dateTime);
-        if (name === "" || number === "")
-            alert("Name or phone number cannot be empty");
+        if (name === "" || number === "" || dateTime === "")
+            alert("Name or phone number or date and time cannot be empty");
         else if (dateTime === null)
             alert(
                 "Please click and mention all the fields of date and time(including AM and PM)"

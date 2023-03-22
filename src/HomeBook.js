@@ -76,8 +76,8 @@ function HomeBook() {
         console.log(dateTime);
         console.log(name);
         console.log(phone);
-        if (name === "" || phone === "")
-            alert("Name or phone number cannot be empty");
+        if (name === "" || phone === "" || dateTime === "")
+            alert("Name or phone number or time cannot be empty");
         else if (dateTime === null)
             alert(
                 "Please click and mention all the fields of date and time(including AM and PM)"
